@@ -1,63 +1,124 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f8f9fa;
-}
+/* RESET */
+* {
+  margin: 0;
+    padding: 0;
+      box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        }
 
-header {
-    text-align: center;
-    padding: 50px 20px;
-    background: linear-gradient(135deg, #007bff, #6610f2);
-    color: white;
-}
+        body {
+          background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+            color: white;
+              overflow-x: hidden;
+              }
 
-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-}
+              /* HERO SECTION */
+              .hero {
+                height: 100vh;
+                  display: flex;
+                    flex-direction: column;
+                      justify-content: center;
+                        align-items: center;
+                          text-align: center;
+                            padding: 20px;
+                            }
 
-header p {
-    margin-top: 10px;
-    font-size: 1.2rem;
-}
+                            .hero h1 {
+                              font-size: 3rem;
+                                margin-bottom: 15px;
+                                  animation: fadeDown 1s ease-in-out;
+                                  }
 
-header button {
-    margin-top: 20px;
-    padding: 12px 25px;
-    background: #fff;
-    color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: 0.3s;
-}
+                                  .hero p {
+                                    font-size: 1.2rem;
+                                      max-width: 600px;
+                                        animation: fadeUp 1s ease-in-out;
+                                        }
 
-header button:hover {
-    background: #e6e6e6;
-}
+                                        @keyframes fadeDown {
+                                          from { opacity: 0; transform: translateY(-30px); }
+                                            to { opacity: 1; transform: translateY(0); }
+                                            }
 
-.features {
-    display: flex;
-    justify-content: center;
-    padding: 40px 20px;
-    gap: 20px;
-    flex-wrap: wrap;
-}
+                                            @keyframes fadeUp {
+                                              from { opacity: 0; transform: translateY(30px); }
+                                                to { opacity: 1; transform: translateY(0); }
+                                                }
 
-.box {
-    width: 300px;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
-    text-align: center;
-}
+                                                /* CONTACT FORM */
+                                                .contact-section {
+                                                  padding: 60px 20px;
+                                                    max-width: 700px;
+                                                      margin: auto;
+                                                        text-align: center;
+                                                        }
 
-footer {
-    background: #343a40;
-    color: #fff;
-    text-align: center;
-    padding: 15px;
-    margin-top: 40px;
-}
+                                                        .contact-card {
+                                                          background: rgba(255, 255, 255, 0.05);
+                                                            padding: 35px;
+                                                              border-radius: 20px;
+                                                                box-shadow: 0 0 20px rgba(255,255,255,0.1);
+                                                                  backdrop-filter: blur(10px);
+                                                                  }
+
+                                                                  .contact-card h2 {
+                                                                    font-size: 2rem;
+                                                                      margin-bottom: 20px;
+                                                                      }
+
+                                                                      input, textarea {
+                                                                        width: 100%;
+                                                                          padding: 15px;
+                                                                            margin: 10px 0;
+                                                                              background: rgba(255,255,255,0.1);
+                                                                                border: none;
+                                                                                  border-radius: 10px;
+                                                                                    color: white;
+                                                                                      font-size: 1rem;
+                                                                                      }
+
+                                                                                      button {
+                                                                                        width: 100%;
+                                                                                          padding: 15px;
+                                                                                            background: #ff3d7b;
+                                                                                              border: none;
+                                                                                                border-radius: 10px;
+                                                                                                  color: white;
+                                                                                                    font-size: 1.2rem;
+                                                                                                      cursor: pointer;
+                                                                                                        transition: 0.3s;
+                                                                                                        }
+
+                                                                                                        button:hover {
+                                                                                                          background: #ff6f9b;
+                                                                                                          }
+
+                                                                                                          /* FLOATING BUTTONS */
+                                                                                                          .float-buttons {
+                                                                                                            position: fixed;
+                                                                                                              right: 20px;
+                                                                                                                bottom: 20px;
+                                                                                                                  display: flex;
+                                                                                                                    flex-direction: column;
+                                                                                                                      gap: 10px;
+                                                                                                                      }
+
+                                                                                                                      .float-buttons a {
+                                                                                                                        background: #25D366;
+                                                                                                                          color: white;
+                                                                                                                            padding: 12px 18px;
+                                                                                                                              border-radius: 50px;
+                                                                                                                                text-decoration: none;
+                                                                                                                                  font-weight: bold;
+                                                                                                                                    font-size: 0.9rem;
+                                                                                                                                      text-align: center;
+                                                                                                                                        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+                                                                                                                                          transition: 0.3s;
+                                                                                                                                          }
+
+                                                                                                                                          .instagram { background: #E4405F; }
+                                                                                                                                          .facebook  { background: #1877F2; }
+
+                                                                                                                                          .float-buttons a:hover {
+                                                                                                                                            transform: scale(1.05);
+                                                                                                                                            }
