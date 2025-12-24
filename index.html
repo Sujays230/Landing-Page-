@@ -3,349 +3,604 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SarkarXPO | Mobile Apps</title>
+    <title>SarkarXPO Apps</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
-            font-family: 'Poppins', sans-serif;
             background-color: #0a192f;
             color: #e6f1ff;
             min-height: 100vh;
-            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
+
         /* Header */
         header {
-            padding: 30px 0;
-            text-align: center;
-            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
-        }
-        
-        .company-brand {
+            background-color: #020c1b;
+            padding: 20px 5%;
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid #1e40af;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
             gap: 15px;
         }
-        
-        .company-logo {
+
+        .logo {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #64ffda, #00b4d8);
-            border-radius: 15px;
+            background: linear-gradient(135deg, #3b82f6, #1e40af);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 28px;
-            color: #0a192f;
             font-weight: bold;
+            color: white;
         }
-        
+
         .company-name {
-            font-size: 36px;
-            font-weight: 700;
-            background: linear-gradient(135deg, #64ffda, #00b4d8);
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #60a5fa, #3b82f6);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
             letter-spacing: 1px;
         }
-        
+
         /* Main Content */
         main {
-            min-height: calc(100vh - 200px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 0;
-        }
-        
-        .apps-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
+            flex: 1;
+            padding: 30px 5% 40px;
+            max-width: 1200px;
+            margin: 0 auto;
             width: 100%;
         }
-        
+
+        .apps-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        /* App Box */
         .app-box {
-            background: rgba(17, 34, 64, 0.8);
+            background: linear-gradient(145deg, #112240, #0a192f);
             border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(100, 255, 218, 0.1);
-            backdrop-filter: blur(10px);
-            animation: growUpDown 3s ease-in-out infinite;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            border: 1px solid #1d4ed8;
+            transition: transform 0.5s ease;
+            position: relative;
+            overflow: hidden;
         }
-        
-        .app-box:nth-child(1) {
-            animation-delay: 0s;
+
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
-        
+
+        .app-box {
+            animation: float 6s ease-in-out infinite;
+        }
+
         .app-box:nth-child(2) {
-            animation-delay: 0.3s;
+            animation-delay: 1s;
         }
-        
-        @keyframes growUpDown {
-            0%, 100% { 
-                transform: scale(1) translateY(0); 
-            }
-            50% { 
-                transform: scale(1.02) translateY(-8px); 
-            }
-        }
-        
-        .app-box:hover {
-            transform: scale(1.03) translateY(-5px);
-            border-color: rgba(100, 255, 218, 0.3);
-            box-shadow: 0 15px 40px rgba(0, 180, 216, 0.2);
-            animation-play-state: paused;
-        }
-        
+
         .app-header {
             display: flex;
             align-items: center;
             margin-bottom: 20px;
+            gap: 15px;
         }
-        
-        .app-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 15px;
+
+        .app-logo {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 15px;
-            font-size: 28px;
-            color: #0a192f;
+            font-size: 32px;
+            font-weight: bold;
+            color: white;
             flex-shrink: 0;
         }
-        
-        .app-icon-1 {
-            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
-        }
-        
-        .app-icon-2 {
-            background: linear-gradient(135deg, #4776E6, #8E54E9);
-        }
-        
+
         .app-info h2 {
-            font-size: 24px;
-            margin-bottom: 5px;
-            color: #64ffda;
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: #93c5fd;
         }
-        
-        .app-info .app-category {
-            color: #8892b0;
-            font-size: 13px;
-            font-weight: 500;
+
+        .app-info p {
+            color: #cbd5e1;
+            line-height: 1.6;
+            font-size: 0.95rem;
         }
-        
-        .app-description {
-            color: #a8b2d1;
-            line-height: 1.5;
-            margin-bottom: 20px;
-            font-size: 15px;
-            flex-grow: 1;
-        }
-        
-        .app-features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 25px;
-        }
-        
-        .feature-tag {
-            background: rgba(100, 255, 218, 0.1);
-            color: #64ffda;
-            padding: 5px 12px;
-            border-radius: 50px;
-            font-size: 12px;
-            font-weight: 500;
-        }
-        
-        .playstore-button {
+
+        /* App Rating */
+        .app-rating {
             display: flex;
             align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #00b4d8, #0077b6);
-            color: white;
-            padding: 12px 20px;
+            gap: 8px;
+            margin-top: 10px;
+            padding: 8px 0;
+        }
+
+        .stars {
+            color: #fbbf24;
+            display: flex;
+            gap: 2px;
+        }
+
+        .rating-text {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .rating-badge {
+            background-color: rgba(30, 64, 175, 0.3);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid #3b82f6;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Screenshots */
+        .screenshots-container {
+            margin: 20px 0;
+        }
+
+        .screenshots-title {
+            font-size: 1rem;
+            margin-bottom: 12px;
+            color: #93c5fd;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .screenshots-scroll {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            scrollbar-width: thin;
+            scrollbar-color: #3b82f6 #1e293b;
+        }
+
+        .screenshots-scroll::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .screenshots-scroll::-webkit-scrollbar-track {
+            background: #1e293b;
             border-radius: 10px;
-            text-decoration: none;
+        }
+
+        .screenshots-scroll::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 10px;
+        }
+
+        .screenshot {
+            width: 120px;
+            height: 213px;
+            border-radius: 10px;
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            border: 1px solid #334155;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            font-size: 12px;
+            position: relative;
+            overflow: hidden;
+            padding-top: 20px;
+        }
+
+        .screenshot::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 4px;
+            background-color: #334155;
+            border-radius: 10px;
+        }
+
+        .screenshot::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            right: 10px;
+            width: 8px;
+            height: 8px;
+            background-color: #334155;
+            border-radius: 50%;
+        }
+
+        /* Video Section */
+        .video-section {
+            margin: 20px 0;
+        }
+
+        .video-title {
+            font-size: 1rem;
+            margin-bottom: 12px;
+            color: #93c5fd;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: #000;
+            aspect-ratio: 16/9;
+            margin-bottom: 15px;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #1e293b;
+            color: #94a3b8;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .video-placeholder:hover {
+            background-color: #334155;
+        }
+
+        .video-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #ef4444;
+        }
+
+        .video-placeholder span {
+            font-size: 1.1rem;
             font-weight: 600;
-            font-size: 16px;
+        }
+
+        .video-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: none;
+        }
+
+        /* Play Store Button */
+        .playstore-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(to right, #34d399, #10b981);
+            color: white;
+            padding: 14px 22px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-top: 10px;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 180, 216, 0.3);
-            margin-top: auto;
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+            width: 100%;
+            justify-content: center;
         }
-        
-        .playstore-button:hover {
+
+        .playstore-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 180, 216, 0.4);
-            background: linear-gradient(135deg, #0077b6, #00b4d8);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
         }
-        
-        .playstore-button i {
-            font-size: 20px;
-            margin-right: 10px;
+
+        /* Age Rating */
+        .age-rating {
+            display: inline-block;
+            background-color: rgba(239, 68, 68, 0.2);
+            color: #fca5a5;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            border: 1px solid #ef4444;
+            margin-top: 10px;
         }
-        
+
         /* Footer */
         footer {
+            background-color: #020c1b;
             text-align: center;
-            padding: 30px 0;
-            color: #8892b0;
-            font-size: 14px;
-            border-top: 1px solid rgba(100, 255, 218, 0.1);
-            margin-top: 40px;
+            padding: 20px;
+            border-top: 1px solid #1e40af;
+            color: #94a3b8;
+            font-size: 0.9rem;
         }
-        
+
         /* Responsive */
-        @media (max-width: 900px) {
-            .apps-container {
-                grid-template-columns: 1fr;
-                max-width: 500px;
-            }
-        }
-        
-        @media (max-width: 768px) {
+        @media (min-width: 768px) {
             .company-name {
-                font-size: 28px;
+                font-size: 2.5rem;
+            }
+            
+            .apps-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
             }
             
             .app-box {
-                padding: 25px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .app-header {
-                flex-direction: column;
-                text-align: center;
+                padding: 30px;
             }
             
-            .app-icon {
-                margin-right: 0;
-                margin-bottom: 15px;
+            .screenshot {
+                width: 140px;
+                height: 248px;
+            }
+            
+            .playstore-btn {
+                width: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 15px 5%;
+            }
+            
+            .logo {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+            
+            .company-name {
+                font-size: 1.8rem;
+            }
+            
+            .app-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            
+            .app-logo {
+                width: 60px;
+                height: 60px;
+                font-size: 26px;
             }
             
             .app-info h2 {
-                font-size: 22px;
-            }
-            
-            .app-box {
-                padding: 20px;
-            }
-            
-            .playstore-button {
-                font-size: 15px;
-                padding: 10px 15px;
-            }
-            
-            .playstore-button i {
-                font-size: 18px;
+                font-size: 1.4rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Header with company name and logo -->
     <header>
-        <div class="container">
-            <div class="company-brand">
-                <div class="company-logo">SX</div>
-                <h1 class="company-name">SarkarXPO</h1>
-            </div>
+        <div class="logo-container">
+            <div class="logo">SX</div>
+            <h1 class="company-name">SarkarXPO</h1>
         </div>
     </header>
-    
+
+    <!-- Main content with app boxes -->
     <main>
-        <div class="container">
-            <div class="apps-container">
-                <!-- App 1 -->
-                <div class="app-box">
-                    <div class="app-header">
-                        <div class="app-icon app-icon-1">
-                            <i class="fas fa-chart-line"></i>
+        <div class="apps-container">
+            <!-- App Box 1 - Wallpaper App -->
+            <div class="app-box">
+                <div class="app-header">
+                    <div class="app-logo">WP</div>
+                    <div class="app-info">
+                        <h2>Wallpaper Pro HD</h2>
+                        <p>HD & 4K wallpapers in 12+ categories. Smooth and easy to use. Discover, collect, and personalize your device with new wallpapers every day.</p>
+                        
+                        <!-- App Rating -->
+                        <div class="app-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-text">5.0 ★</span>
+                            <div class="rating-badge">
+                                <i class="fas fa-user-check"></i>
+                                <span>10 reviews</span>
+                            </div>
                         </div>
-                        <div class="app-info">
-                            <h2>FinanceFlow</h2>
-                            <div class="app-category">Finance & Budgeting</div>
+                        
+                        <!-- Age Rating -->
+                        <div class="age-rating">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <span>Rated for 18+</span>
                         </div>
                     </div>
-                    
-                    <p class="app-description">
-                        Track expenses, set savings goals, and get insights to manage your money better. Perfect for personal and small business finance.
-                    </p>
-                    
-                    <div class="app-features">
-                        <span class="feature-tag">Expense Tracking</span>
-                        <span class="feature-tag">Budget Planning</span>
-                        <span class="feature-tag">Reports</span>
-                    </div>
-                    
-                    <a href="https://play.google.com/store/apps" target="_blank" class="playstore-button">
-                        <i class="fab fa-google-play"></i>
-                        Get on Play Store
-                    </a>
                 </div>
                 
-                <!-- App 2 -->
-                <div class="app-box">
-                    <div class="app-header">
-                        <div class="app-icon app-icon-2">
-                            <i class="fas fa-tasks"></i>
-                        </div>
-                        <div class="app-info">
-                            <h2>TaskSync Pro</h2>
-                            <div class="app-category">Productivity & Tasks</div>
-                        </div>
+                <!-- Screenshots -->
+                <div class="screenshots-container">
+                    <div class="screenshots-title">
+                        <i class="fas fa-mobile-alt"></i>
+                        App Screenshots
                     </div>
-                    
-                    <p class="app-description">
-                        Organize work and personal tasks in one place. Collaborate with teams, set priorities, and track progress across all devices.
-                    </p>
-                    
-                    <div class="app-features">
-                        <span class="feature-tag">Team Collaboration</span>
-                        <span class="feature-tag">Priority Management</span>
-                        <span class="feature-tag">Cross-Platform</span>
+                    <div class="screenshots-scroll">
+                        <div class="screenshot">Home</div>
+                        <div class="screenshot">Categories</div>
+                        <div class="screenshot">HD Collection</div>
+                        <div class="screenshot">4K Wallpapers</div>
+                        <div class="screenshot">Favorites</div>
+                        <div class="screenshot">Settings</div>
                     </div>
-                    
-                    <a href="https://play.google.com/store/apps" target="_blank" class="playstore-button">
-                        <i class="fab fa-google-play"></i>
-                        Get on Play Store
-                    </a>
                 </div>
+                
+                <!-- Embedded Video -->
+                <div class="video-section">
+                    <div class="video-title">
+                        <i class="fab fa-youtube"></i>
+                        App Demo Video
+                    </div>
+                    <div class="video-container" id="video-container-1">
+                        <div class="video-placeholder" onclick="playVideo(1)">
+                            <i class="fab fa-youtube"></i>
+                            <span>Click to play video</span>
+                            <p>Watch how Wallpaper Pro HD works</p>
+                        </div>
+                        <iframe class="video-frame" id="video-frame-1" 
+                                src="" 
+                                title="Wallpaper Pro HD Demo" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+                
+                <!-- Play Store Button -->
+                <a href="https://play.google.com/store/apps/details?id=com.sarkarxpo.wallpaperpro" target="_blank" class="playstore-btn">
+                    <i class="fab fa-google-play"></i>
+                    Download on Play Store
+                </a>
+            </div>
+            
+            <!-- App Box 2 - Finance App -->
+            <div class="app-box">
+                <div class="app-header">
+                    <div class="app-logo">FX</div>
+                    <div class="app-info">
+                        <h2>FinanceXpert Pro</h2>
+                        <p>Advanced financial management tool with real-time analytics, budget tracking, and investment insights. Simplify your finances with AI-powered recommendations.</p>
+                        
+                        <!-- App Rating -->
+                        <div class="app-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-text">4.5 ★</span>
+                            <div class="rating-badge">
+                                <i class="fas fa-user-check"></i>
+                                <span>24 reviews</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Age Rating -->
+                        <div class="age-rating">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Rated for Everyone</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Screenshots -->
+                <div class="screenshots-container">
+                    <div class="screenshots-title">
+                        <i class="fas fa-mobile-alt"></i>
+                        App Screenshots
+                    </div>
+                    <div class="screenshots-scroll">
+                        <div class="screenshot">Dashboard</div>
+                        <div class="screenshot">Analytics</div>
+                        <div class="screenshot">Budget Planner</div>
+                        <div class="screenshot">Reports</div>
+                        <div class="screenshot">Settings</div>
+                    </div>
+                </div>
+                
+                <!-- Embedded Video -->
+                <div class="video-section">
+                    <div class="video-title">
+                        <i class="fab fa-youtube"></i>
+                        App Demo Video
+                    </div>
+                    <div class="video-container" id="video-container-2">
+                        <div class="video-placeholder" onclick="playVideo(2)">
+                            <i class="fab fa-youtube"></i>
+                            <span>Click to play video</span>
+                            <p>Watch FinanceXpert Pro in action</p>
+                        </div>
+                        <iframe class="video-frame" id="video-frame-2" 
+                                src="" 
+                                title="FinanceXpert Pro Demo" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+                
+                <!-- Play Store Button -->
+                <a href="https://play.google.com/store/apps/details?id=com.sarkarxpo.financexpert" target="_blank" class="playstore-btn">
+                    <i class="fab fa-google-play"></i>
+                    Download on Play Store
+                </a>
             </div>
         </div>
     </main>
-    
+
+    <!-- Footer with copyright -->
     <footer>
-        <div class="container">
-            <p>&copy; 2025 SarkarXPO. All rights reserved.</p>
-            <p style="margin-top: 5px; font-size: 12px;">Google Play and the Google Play logo are trademarks of Google LLC.</p>
-        </div>
+        <p>&copy; Copyright 2025 SarkarXPO. All rights reserved.</p>
     </footer>
 
     <script>
-        // Add interactive effects
+        // YouTube video IDs (replace with your actual video IDs)
+        const videoIds = {
+            1: "dQw4w9WgXcQ", // Example video ID for Wallpaper app
+            2: "dQw4w9WgXcQ"  // Example video ID for Finance app
+        };
+
+        // Play video function
+        function playVideo(appNum) {
+            const placeholder = document.querySelector(`#video-container-${appNum} .video-placeholder`);
+            const videoFrame = document.querySelector(`#video-frame-${appNum}`);
+            
+            // Hide placeholder and show video frame
+            placeholder.style.display = "none";
+            videoFrame.style.display = "block";
+            
+            // Set the video source with autoplay
+            videoFrame.src = `https://www.youtube.com/embed/${videoIds[appNum]}?autoplay=1&rel=0&modestbranding=1`;
+        }
+
+        // Pause animation on hover
         document.querySelectorAll('.app-box').forEach(box => {
             box.addEventListener('mouseenter', function() {
                 this.style.animationPlayState = 'paused';
@@ -355,15 +610,18 @@
                 this.style.animationPlayState = 'running';
             });
         });
-        
-        // Add scroll-based animation
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * 0.02;
+
+        // Add touch support for mobile
+        document.querySelectorAll('.video-placeholder').forEach(placeholder => {
+            placeholder.addEventListener('touchstart', function(e) {
+                // Prevent triggering click event immediately on touch devices
+                e.preventDefault();
+            });
             
-            document.querySelectorAll('.app-box').forEach((box, index) => {
-                const delay = index * 0.1;
-                box.style.transform = `scale(${1 + rate * 0.01}) translateY(${rate * 0.5}px)`;
+            placeholder.addEventListener('touchend', function(e) {
+                const appNum = this.closest('.video-container').id.split('-')[2];
+                playVideo(appNum);
+                e.preventDefault();
             });
         });
     </script>
