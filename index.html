@@ -39,20 +39,24 @@
         }
 
         .logo {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #3b82f6, #1e40af);
-            border-radius: 12px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #3b82f6;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
-            font-weight: bold;
-            color: white;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .company-name {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 800;
             background: linear-gradient(to right, #60a5fa, #3b82f6);
             -webkit-background-clip: text;
@@ -111,21 +115,27 @@
         }
 
         .app-logo {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            width: 80px;
+            height: 80px;
             border-radius: 18px;
+            overflow: hidden;
+            border: 2px solid #4f46e5;
+            flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
-            font-weight: bold;
-            color: white;
-            flex-shrink: 0;
+            background: white;
+        }
+
+        .app-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 5px;
         }
 
         .app-info h2 {
-            font-size: 1.5rem;
+            font-size: 1.7rem;
             margin-bottom: 8px;
             color: #93c5fd;
         }
@@ -205,44 +215,55 @@
         }
 
         .screenshot {
-            width: 120px;
-            height: 213px;
-            border-radius: 10px;
-            background: linear-gradient(145deg, #1e293b, #0f172a);
+            width: 130px;
+            height: 230px;
+            border-radius: 12px;
             border: 1px solid #334155;
             flex-shrink: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #94a3b8;
-            font-size: 12px;
             position: relative;
             overflow: hidden;
-            padding-top: 20px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         .screenshot::after {
             content: '';
             position: absolute;
-            top: 8px;
+            top: 10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 40px;
-            height: 4px;
-            background-color: #334155;
+            width: 45px;
+            height: 5px;
+            background-color: rgba(51, 65, 85, 0.7);
             border-radius: 10px;
+            z-index: 1;
         }
 
         .screenshot::before {
             content: '';
             position: absolute;
-            top: 15px;
-            right: 10px;
-            width: 8px;
-            height: 8px;
-            background-color: #334155;
+            top: 18px;
+            right: 12px;
+            width: 10px;
+            height: 10px;
+            background-color: rgba(51, 65, 85, 0.7);
             border-radius: 50%;
+            z-index: 1;
+        }
+
+        /* Screenshot labels */
+        .screenshot-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 8px;
+            text-align: center;
+            font-size: 12px;
+            z-index: 2;
         }
 
         /* Video Section */
@@ -279,22 +300,28 @@
             background-color: #1e293b;
             color: #94a3b8;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
         }
 
         .video-placeholder:hover {
             background-color: #334155;
+            transform: scale(1.01);
         }
 
         .video-placeholder i {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 15px;
             color: #ef4444;
         }
 
         .video-placeholder span {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 600;
+        }
+
+        .video-placeholder p {
+            margin-top: 8px;
+            font-size: 0.9rem;
         }
 
         .video-frame {
@@ -311,7 +338,7 @@
             gap: 10px;
             background: linear-gradient(to right, #34d399, #10b981);
             color: white;
-            padding: 14px 22px;
+            padding: 14px 24px;
             border-radius: 12px;
             text-decoration: none;
             font-weight: 700;
@@ -333,11 +360,51 @@
             display: inline-block;
             background-color: rgba(239, 68, 68, 0.2);
             color: #fca5a5;
-            padding: 4px 10px;
+            padding: 4px 12px;
             border-radius: 6px;
             font-size: 0.85rem;
             border: 1px solid #ef4444;
             margin-top: 10px;
+        }
+
+        /* Personalization Section */
+        .personalization {
+            margin: 15px 0;
+            padding: 12px;
+            background: rgba(30, 64, 175, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .personalization h3 {
+            color: #93c5fd;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .personalization p {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+        }
+
+        /* Data Safety */
+        .data-safety {
+            margin: 15px 0;
+            padding: 12px;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid #10b981;
+        }
+
+        .data-safety h3 {
+            color: #34d399;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .data-safety p {
+            color: #cbd5e1;
+            font-size: 0.9rem;
         }
 
         /* Footer */
@@ -348,6 +415,19 @@
             border-top: 1px solid #1e40af;
             color: #94a3b8;
             font-size: 0.9rem;
+        }
+
+        /* Image Fallback */
+        .img-fallback {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(145deg, #3b82f6, #1e40af);
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
         }
 
         /* Responsive */
@@ -366,8 +446,8 @@
             }
             
             .screenshot {
-                width: 140px;
-                height: 248px;
+                width: 150px;
+                height: 265px;
             }
             
             .playstore-btn {
@@ -381,9 +461,8 @@
             }
             
             .logo {
-                width: 50px;
-                height: 50px;
-                font-size: 24px;
+                width: 60px;
+                height: 60px;
             }
             
             .company-name {
@@ -397,25 +476,18 @@
             }
             
             .app-logo {
-                width: 60px;
-                height: 60px;
-                font-size: 26px;
+                width: 70px;
+                height: 70px;
             }
             
             .app-info h2 {
-                font-size: 1.4rem;
+                font-size: 1.5rem;
             }
-            .screenshots-scroll {
-  display: flex;
-  gap: 12px;
-  overflow-x: auto;
-}
-
-.screenshot img {
-  width: 200px;
-  height: auto;
-  border-radius: 10px;
-}
+            
+            .screenshot {
+                width: 120px;
+                height: 212px;
+            }
         }
     </style>
 </head>
@@ -423,7 +495,11 @@
     <!-- Header with company name and logo -->
     <header>
         <div class="logo-container">
-            <div class="logo">SX</div>
+            <div class="logo">
+                <img src="https://github.com/Sujays230/Landing-Page-/raw/main/IMG-20251208-WA0000.jpg" 
+                     alt="SarkarXPO Logo" 
+                     onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'img-fallback\'>SX</div>';">
+            </div>
             <h1 class="company-name">SarkarXPO</h1>
         </div>
     </header>
@@ -431,12 +507,16 @@
     <!-- Main content with app boxes -->
     <main>
         <div class="apps-container">
-            <!-- App Box 1 - Wallpaper App -->
+            <!-- App Box 1 - Walify Wallpaper App -->
             <div class="app-box">
                 <div class="app-header">
-                    <div class="app-logo">WP</div>
+                    <div class="app-logo">
+                        <img src="https://github.com/Sujays230/Landing-Page-/raw/main/348-removebg-preview.png" 
+                             alt="Walify App Logo"
+                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'img-fallback\'>W</div>';">
+                    </div>
                     <div class="app-info">
-                        <h2>Wallpaper Pro HD</h2>
+                        <h2>Walify</h2>
                         <p>HD & 4K wallpapers in 12+ categories. Smooth and easy to use. Discover, collect, and personalize your device with new wallpapers every day.</p>
                         
                         <!-- App Rating -->
@@ -463,6 +543,12 @@
                     </div>
                 </div>
                 
+                <!-- Personalization Section -->
+                <div class="personalization">
+                    <h3>DISCOVER, COLLECT, & PERSONALIZE</h3>
+                    <p>Your smooth wallpaper experience. FIND SOMETHING NEW EVERY DAY</p>
+                </div>
+                
                 <!-- Screenshots -->
                 <div class="screenshots-container">
                     <div class="screenshots-title">
@@ -470,13 +556,28 @@
                         App Screenshots
                     </div>
                     <div class="screenshots-scroll">
-                        <div class="screenshot">Home</div>
-                        <div class="screenshot">Categories</div>
-                        <div class="screenshot">HD Collection</div>
-                        <div class="screenshot">4K Wallpapers</div>
-                        <div class="screenshot">Favorites</div>
-                        <div class="screenshot">Settings</div>
+                        <div class="screenshot" style="background-image: url('https://github.com/Sujays230/Landing-Page-/raw/main/1000288961%20(1).jpg');">
+                            <div class="screenshot-label">Home Screen</div>
+                        </div>
+                        <div class="screenshot" style="background: linear-gradient(145deg, #1e293b, #0f172a);">
+                            <div class="screenshot-label">Categories</div>
+                        </div>
+                        <div class="screenshot" style="background: linear-gradient(145deg, #2d3748, #1e293b);">
+                            <div class="screenshot-label">HD Collection</div>
+                        </div>
+                        <div class="screenshot" style="background: linear-gradient(145deg, #3b82f6, #1e40af);">
+                            <div class="screenshot-label">4K Wallpapers</div>
+                        </div>
+                        <div class="screenshot" style="background: linear-gradient(145deg, #8b5cf6, #7c3aed);">
+                            <div class="screenshot-label">Favorites</div>
+                        </div>
                     </div>
+                </div>
+                
+                <!-- Data Safety -->
+                <div class="data-safety">
+                    <h3>Data Safety</h3>
+                    <p>Ratings and reviews are verified and are from people who use the same type of device that you use 😊</p>
                 </div>
                 
                 <!-- Embedded Video -->
@@ -489,11 +590,11 @@
                         <div class="video-placeholder" onclick="playVideo(1)">
                             <i class="fab fa-youtube"></i>
                             <span>Click to play video</span>
-                            <p>Watch how Wallpaper Pro HD works</p>
+                            <p>Watch how Walify works</p>
                         </div>
                         <iframe class="video-frame" id="video-frame-1" 
                                 src="" 
-                                title="Wallpaper Pro HD Demo" 
+                                title="Walify Demo" 
                                 frameborder="0" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                 allowfullscreen>
@@ -502,18 +603,22 @@
                 </div>
                 
                 <!-- Play Store Button -->
-                <a href="https://play.google.com/store/apps/details?id=com.sarkarxpo.wallpaperpro" target="_blank" class="playstore-btn">
+                <a href="https://play.google.com/store/apps/details?id=com.sarkarxpo.walify" target="_blank" class="playstore-btn">
                     <i class="fab fa-google-play"></i>
                     Download on Play Store
                 </a>
             </div>
             
-            <!-- App Box 2 - Finance App -->
+            <!-- App Box 2 - SmartSpends Finance App -->
             <div class="app-box">
                 <div class="app-header">
-                    <div class="app-logo">FX</div>
+                    <div class="app-logo">
+                        <img src="https://github.com/Sujays230/Landing-Page-/raw/main/unnamed.webp" 
+                             alt="SmartSpends App Logo"
+                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'img-fallback\'>SS</div>';">
+                    </div>
                     <div class="app-info">
-                        <h2>FinanceXpert Pro</h2>
+                        <h2>SmartSpends</h2>
                         <p>Advanced financial management tool with real-time analytics, budget tracking, and investment insights. Simplify your finances with AI-powered recommendations.</p>
                         
                         <!-- App Rating -->
@@ -547,21 +652,21 @@
                         App Screenshots
                     </div>
                     <div class="screenshots-scroll">
-  <div class="screenshot">
-    <img src="https://github.com/Sujays230/Landing-Page-/blob/main/1000288961%20(1).jpg" alt="Dashboard">
-  </div>
-  <div class="screenshot">
-    <img src="https://your-image-link.com/analytics.png" alt="Analytics">
-  </div>
-  <div class="screenshot">
-    <img src="https://your-image-link.com/budget.png" alt="Budget Planner">
-  </div>
-  <div class="screenshot">
-    <img src="https://your-image-link.com/reports.png" alt="Reports">
-  </div>
-  <div class="screenshot">
-    <img src="https://your-image-link.com/settings.png" alt="Settings">
-  </div>
+                        <div class="screenshot" style="background-image: url('https://github.com/Sujays230/Landing-Page-/raw/main/1766250704481.jpg');">
+                            <div class="screenshot-label">Dashboard</div>
+                        </div>
+                        <div class="screenshot" style="background: linear-gradient(145deg, #2d3748, #1e293b);">
+                            <div class="screenshot-label">Analytics</div>
+                        </div>
+                        <div class="screenshot" style="background: linear-gradient(145deg, #3b82f6, #1e40af);">
+                            <div class="screenshot-label">Budget Planner</div>
+                        </div>
+                        <div class="screenshot" style="background: linear-gradient(145deg, #8b5cf6, #7c3aed);">
+                            <div class="screenshot-label">Reports</div>
+                        </div>
+                        <div class="screenshot" style="background: linear-gradient(145deg, #10b981, #059669);">
+                            <div class="screenshot-label">Settings</div>
+                        </div>
                     </div>
                 </div>
                 
@@ -575,11 +680,11 @@
                         <div class="video-placeholder" onclick="playVideo(2)">
                             <i class="fab fa-youtube"></i>
                             <span>Click to play video</span>
-                            <p>Watch FinanceXpert Pro in action</p>
+                            <p>Watch SmartSpends in action</p>
                         </div>
                         <iframe class="video-frame" id="video-frame-2" 
                                 src="" 
-                                title="FinanceXpert Pro Demo" 
+                                title="SmartSpends Demo" 
                                 frameborder="0" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                 allowfullscreen>
@@ -588,7 +693,7 @@
                 </div>
                 
                 <!-- Play Store Button -->
-                <a href="https://play.google.com/store/apps/details?id=com.sarkarxpo.financexpert" target="_blank" class="playstore-btn">
+                <a href="https://play.google.com/store/apps/details?id=com.sarkarxpo.smartspends" target="_blank" class="playstore-btn">
                     <i class="fab fa-google-play"></i>
                     Download on Play Store
                 </a>
@@ -602,13 +707,19 @@
     </footer>
 
     <script>
-        // YouTube video IDs (replace with your actual video IDs)
+        // YouTube video IDs - replace with your actual video IDs
         const videoIds = {
-            1: "dQw4w9WgXcQ", // Example video ID for Wallpaper app
-            2: "dQw4w9WgXcQ"  // Example video ID for Finance app
+            1: "dQw4w9WgXcQ", // Example video ID for Walify app
+            2: "dQw4w9WgXcQ"  // Example video ID for SmartSpends app
         };
 
-        // Play video function
+        // Track which videos have been loaded
+        const loadedVideos = {
+            1: false,
+            2: false
+        };
+
+        // Play video function - only loads and plays when clicked
         function playVideo(appNum) {
             const placeholder = document.querySelector(`#video-container-${appNum} .video-placeholder`);
             const videoFrame = document.querySelector(`#video-frame-${appNum}`);
@@ -617,8 +728,16 @@
             placeholder.style.display = "none";
             videoFrame.style.display = "block";
             
-            // Set the video source with autoplay
-            videoFrame.src = `https://www.youtube.com/embed/${videoIds[appNum]}?autoplay=1&rel=0&modestbranding=1`;
+            // Only load the video if it hasn't been loaded before
+            if (!loadedVideos[appNum]) {
+                // Set the video source with autoplay
+                videoFrame.src = `https://www.youtube.com/embed/${videoIds[appNum]}?autoplay=1&rel=0&modestbranding=1`;
+                loadedVideos[appNum] = true;
+            } else {
+                // If already loaded, just play it
+                const videoPlayer = videoFrame.contentWindow;
+                videoPlayer.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+            }
         }
 
         // Pause animation on hover
@@ -645,6 +764,28 @@
                 e.preventDefault();
             });
         });
+
+        // Preload images with error handling
+        function preloadImages() {
+            const images = [
+                'https://github.com/Sujays230/Landing-Page-/raw/main/IMG-20251208-WA0000.jpg',
+                'https://github.com/Sujays230/Landing-Page-/raw/main/348-removebg-preview.png',
+                'https://github.com/Sujays230/Landing-Page-/raw/main/unnamed.webp',
+                'https://github.com/Sujays230/Landing-Page-/raw/main/1000288961%20(1).jpg',
+                'https://github.com/Sujays230/Landing-Page-/raw/main/1766250704481.jpg'
+            ];
+
+            images.forEach(src => {
+                const img = new Image();
+                img.src = src;
+                img.onerror = function() {
+                    console.log('Failed to load image:', src);
+                };
+            });
+        }
+
+        // Preload images when page loads
+        window.addEventListener('load', preloadImages);
     </script>
 </body>
 </html>
